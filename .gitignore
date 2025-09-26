@@ -1,0 +1,23 @@
+# ROS2 build artifacts
+build/
+install/
+log/
+.colcon_build
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.docker/
+
+# Temporary files
+*.tmp
+*.bak
+*~
