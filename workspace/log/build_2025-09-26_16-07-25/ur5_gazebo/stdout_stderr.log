@@ -1,0 +1,58 @@
+running egg_info
+creating ../../build/ur5_gazebo/ur5_gazebo.egg-info
+writing ../../build/ur5_gazebo/ur5_gazebo.egg-info/PKG-INFO
+writing dependency_links to ../../build/ur5_gazebo/ur5_gazebo.egg-info/dependency_links.txt
+writing entry points to ../../build/ur5_gazebo/ur5_gazebo.egg-info/entry_points.txt
+writing requirements to ../../build/ur5_gazebo/ur5_gazebo.egg-info/requires.txt
+writing top-level names to ../../build/ur5_gazebo/ur5_gazebo.egg-info/top_level.txt
+writing manifest file '../../build/ur5_gazebo/ur5_gazebo.egg-info/SOURCES.txt'
+reading manifest file '../../build/ur5_gazebo/ur5_gazebo.egg-info/SOURCES.txt'
+writing manifest file '../../build/ur5_gazebo/ur5_gazebo.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /workspace/build/ur5_gazebo/build
+creating /workspace/build/ur5_gazebo/build/lib
+creating /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+copying ur5_gazebo/demo_recorder.py -> /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+copying ur5_gazebo/__init__.py -> /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+copying ur5_gazebo/camera_detector.py -> /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+copying ur5_gazebo/bc_policy_controller.py -> /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+copying ur5_gazebo/comparison_evaluator.py -> /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+copying ur5_gazebo/pick_place_controller.py -> /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+running install
+running install_lib
+creating /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+copying /workspace/build/ur5_gazebo/build/lib/ur5_gazebo/demo_recorder.py -> /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+copying /workspace/build/ur5_gazebo/build/lib/ur5_gazebo/__init__.py -> /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+copying /workspace/build/ur5_gazebo/build/lib/ur5_gazebo/camera_detector.py -> /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+copying /workspace/build/ur5_gazebo/build/lib/ur5_gazebo/bc_policy_controller.py -> /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+copying /workspace/build/ur5_gazebo/build/lib/ur5_gazebo/comparison_evaluator.py -> /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+copying /workspace/build/ur5_gazebo/build/lib/ur5_gazebo/pick_place_controller.py -> /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+byte-compiling /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo/demo_recorder.py to demo_recorder.cpython-310.pyc
+byte-compiling /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo/__init__.py to __init__.cpython-310.pyc
+byte-compiling /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo/camera_detector.py to camera_detector.cpython-310.pyc
+byte-compiling /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo/bc_policy_controller.py to bc_policy_controller.cpython-310.pyc
+byte-compiling /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo/comparison_evaluator.py to comparison_evaluator.cpython-310.pyc
+byte-compiling /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo/pick_place_controller.py to pick_place_controller.cpython-310.pyc
+running install_data
+creating /workspace/install/ur5_gazebo/share/ament_index
+creating /workspace/install/ur5_gazebo/share/ament_index/resource_index
+creating /workspace/install/ur5_gazebo/share/ament_index/resource_index/packages
+copying resource/ur5_gazebo -> /workspace/install/ur5_gazebo/share/ament_index/resource_index/packages
+copying package.xml -> /workspace/install/ur5_gazebo/share/ur5_gazebo
+creating /workspace/install/ur5_gazebo/share/ur5_gazebo/launch
+copying launch/ur5.launch.py -> /workspace/install/ur5_gazebo/share/ur5_gazebo/launch
+creating /workspace/install/ur5_gazebo/share/ur5_gazebo/worlds
+copying worlds/pick_place_world.world -> /workspace/install/ur5_gazebo/share/ur5_gazebo/worlds
+creating /workspace/install/ur5_gazebo/share/ur5_gazebo/urdf
+copying urdf/ur5.urdf.xacro -> /workspace/install/ur5_gazebo/share/ur5_gazebo/urdf
+creating /workspace/install/ur5_gazebo/share/ur5_gazebo/config
+running install_egg_info
+Copying ../../build/ur5_gazebo/ur5_gazebo.egg-info to /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo-0.0.0-py3.10.egg-info
+running install_scripts
+Installing bc_policy_controller script to /workspace/install/ur5_gazebo/bin
+Installing camera_detector script to /workspace/install/ur5_gazebo/bin
+Installing comparison_evaluator script to /workspace/install/ur5_gazebo/bin
+Installing demo_recorder script to /workspace/install/ur5_gazebo/bin
+Installing pick_place_controller script to /workspace/install/ur5_gazebo/bin
+writing list of installed files to '/workspace/build/ur5_gazebo/install.log'

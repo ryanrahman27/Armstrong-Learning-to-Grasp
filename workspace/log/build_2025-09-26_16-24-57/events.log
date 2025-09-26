@@ -1,0 +1,79 @@
+[0.000000] (-) TimerEvent: {}
+[0.000634] (-) JobUnselected: {'identifier': 'bc_training'}
+[0.002839] (ur5_gazebo) JobQueued: {'identifier': 'ur5_gazebo', 'dependencies': OrderedDict()}
+[0.004024] (ur5_moveit_config) JobQueued: {'identifier': 'ur5_moveit_config', 'dependencies': OrderedDict()}
+[0.004533] (ur5_gazebo) JobStarted: {'identifier': 'ur5_gazebo'}
+[0.033260] (ur5_moveit_config) JobStarted: {'identifier': 'ur5_moveit_config'}
+[0.097117] (-) TimerEvent: {}
+[0.199048] (-) TimerEvent: {}
+[0.300809] (-) TimerEvent: {}
+[0.401857] (-) TimerEvent: {}
+[0.504943] (-) TimerEvent: {}
+[0.605777] (-) TimerEvent: {}
+[0.710574] (-) TimerEvent: {}
+[0.815795] (-) TimerEvent: {}
+[0.918045] (-) TimerEvent: {}
+[1.022717] (-) TimerEvent: {}
+[1.123903] (-) TimerEvent: {}
+[1.225958] (-) TimerEvent: {}
+[1.326849] (-) TimerEvent: {}
+[1.427710] (-) TimerEvent: {}
+[1.528804] (-) TimerEvent: {}
+[1.629768] (-) TimerEvent: {}
+[1.730726] (-) TimerEvent: {}
+[1.789640] (ur5_gazebo) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/ur5_gazebo', 'build', '--build-base', '/workspace/build/ur5_gazebo/build', 'install', '--record', '/workspace/build/ur5_gazebo/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/workspace/src/ur5_gazebo', 'env': {'HOSTNAME': 'docker-desktop', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/root', 'OLDPWD': '/', 'ROS_PYTHON_VERSION': '3', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'ROS_LOCALHOST_ONLY': '0', 'QT_X11_NO_MITSHM': '1', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'PWD': '/workspace/build/ur5_gazebo', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/workspace/build/ur5_gazebo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/install/ur5_gazebo/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1'}, 'shell': False}
+[1.813837] (ur5_moveit_config) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/ur5_moveit_config', 'build', '--build-base', '/workspace/build/ur5_moveit_config/build', 'install', '--record', '/workspace/build/ur5_moveit_config/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/workspace/src/ur5_moveit_config', 'env': {'HOSTNAME': 'docker-desktop', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/root', 'OLDPWD': '/', 'ROS_PYTHON_VERSION': '3', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'ROS_LOCALHOST_ONLY': '0', 'QT_X11_NO_MITSHM': '1', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'PWD': '/workspace/build/ur5_moveit_config', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/workspace/build/ur5_moveit_config/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/install/ur5_moveit_config/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1'}, 'shell': False}
+[1.831673] (-) TimerEvent: {}
+[1.932747] (-) TimerEvent: {}
+[2.033743] (-) TimerEvent: {}
+[2.134754] (-) TimerEvent: {}
+[2.236734] (-) TimerEvent: {}
+[2.299012] (ur5_gazebo) StdoutLine: {'line': b'running egg_info\n'}
+[2.303185] (ur5_gazebo) StdoutLine: {'line': b'writing ../../build/ur5_gazebo/ur5_gazebo.egg-info/PKG-INFO\n'}
+[2.307766] (ur5_gazebo) StdoutLine: {'line': b'writing dependency_links to ../../build/ur5_gazebo/ur5_gazebo.egg-info/dependency_links.txt\n'}
+[2.314639] (ur5_gazebo) StdoutLine: {'line': b'writing entry points to ../../build/ur5_gazebo/ur5_gazebo.egg-info/entry_points.txt\n'}
+[2.320867] (ur5_gazebo) StdoutLine: {'line': b'writing requirements to ../../build/ur5_gazebo/ur5_gazebo.egg-info/requires.txt\n'}
+[2.323442] (ur5_gazebo) StdoutLine: {'line': b'writing top-level names to ../../build/ur5_gazebo/ur5_gazebo.egg-info/top_level.txt\n'}
+[2.333786] (ur5_gazebo) StdoutLine: {'line': b"reading manifest file '../../build/ur5_gazebo/ur5_gazebo.egg-info/SOURCES.txt'\n"}
+[2.337833] (-) TimerEvent: {}
+[2.342904] (ur5_gazebo) StdoutLine: {'line': b"writing manifest file '../../build/ur5_gazebo/ur5_gazebo.egg-info/SOURCES.txt'\n"}
+[2.345275] (ur5_moveit_config) StdoutLine: {'line': b'running egg_info\n'}
+[2.349405] (ur5_gazebo) StdoutLine: {'line': b'running build\n'}
+[2.354206] (ur5_gazebo) StdoutLine: {'line': b'running build_py\n'}
+[2.356503] (ur5_moveit_config) StdoutLine: {'line': b'writing ../../build/ur5_moveit_config/ur5_moveit_config.egg-info/PKG-INFO\n'}
+[2.359328] (ur5_moveit_config) StdoutLine: {'line': b'writing dependency_links to ../../build/ur5_moveit_config/ur5_moveit_config.egg-info/dependency_links.txt\n'}
+[2.361357] (ur5_gazebo) StdoutLine: {'line': b'running install\n'}
+[2.363519] (ur5_gazebo) StdoutLine: {'line': b'running install_lib\n'}
+[2.364531] (ur5_moveit_config) StdoutLine: {'line': b'writing entry points to ../../build/ur5_moveit_config/ur5_moveit_config.egg-info/entry_points.txt\n'}
+[2.365230] (ur5_moveit_config) StdoutLine: {'line': b'writing requirements to ../../build/ur5_moveit_config/ur5_moveit_config.egg-info/requires.txt\n'}
+[2.366191] (ur5_gazebo) StdoutLine: {'line': b'running install_data\n'}
+[2.367019] (ur5_moveit_config) StdoutLine: {'line': b'writing top-level names to ../../build/ur5_moveit_config/ur5_moveit_config.egg-info/top_level.txt\n'}
+[2.368188] (ur5_gazebo) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.370190] (ur5_gazebo) StdoutLine: {'line': b"removing '/workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[2.374342] (ur5_gazebo) StdoutLine: {'line': b'Copying ../../build/ur5_gazebo/ur5_gazebo.egg-info to /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo-0.0.0-py3.10.egg-info\n'}
+[2.378458] (ur5_moveit_config) StdoutLine: {'line': b"reading manifest file '../../build/ur5_moveit_config/ur5_moveit_config.egg-info/SOURCES.txt'\n"}
+[2.383960] (ur5_moveit_config) StdoutLine: {'line': b"writing manifest file '../../build/ur5_moveit_config/ur5_moveit_config.egg-info/SOURCES.txt'\n"}
+[2.385158] (ur5_moveit_config) StdoutLine: {'line': b'running build\n'}
+[2.385915] (ur5_moveit_config) StdoutLine: {'line': b'running build_py\n'}
+[2.387655] (ur5_moveit_config) StdoutLine: {'line': b'running install\n'}
+[2.389172] (ur5_moveit_config) StdoutLine: {'line': b'running install_lib\n'}
+[2.393201] (ur5_moveit_config) StdoutLine: {'line': b'running install_data\n'}
+[2.395917] (ur5_moveit_config) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.398302] (ur5_gazebo) StdoutLine: {'line': b'running install_scripts\n'}
+[2.402215] (ur5_moveit_config) StdoutLine: {'line': b"removing '/workspace/install/ur5_moveit_config/lib/python3.10/site-packages/ur5_moveit_config-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[2.408460] (ur5_moveit_config) StdoutLine: {'line': b'Copying ../../build/ur5_moveit_config/ur5_moveit_config.egg-info to /workspace/install/ur5_moveit_config/lib/python3.10/site-packages/ur5_moveit_config-0.0.0-py3.10.egg-info\n'}
+[2.439178] (-) TimerEvent: {}
+[2.447491] (ur5_moveit_config) StdoutLine: {'line': b'running install_scripts\n'}
+[2.465763] (ur5_gazebo) StdoutLine: {'line': b'Installing bc_policy_controller script to /workspace/install/ur5_gazebo/bin\n'}
+[2.467639] (ur5_gazebo) StdoutLine: {'line': b'Installing camera_detector script to /workspace/install/ur5_gazebo/bin\n'}
+[2.469239] (ur5_gazebo) StdoutLine: {'line': b'Installing comparison_evaluator script to /workspace/install/ur5_gazebo/bin\n'}
+[2.474492] (ur5_gazebo) StdoutLine: {'line': b'Installing demo_recorder script to /workspace/install/ur5_gazebo/bin\n'}
+[2.476828] (ur5_gazebo) StdoutLine: {'line': b'Installing pick_place_controller script to /workspace/install/ur5_gazebo/bin\n'}
+[2.480070] (ur5_gazebo) StdoutLine: {'line': b"writing list of installed files to '/workspace/build/ur5_gazebo/install.log'\n"}
+[2.508538] (ur5_moveit_config) StdoutLine: {'line': b"writing list of installed files to '/workspace/build/ur5_moveit_config/install.log'\n"}
+[2.515797] (ur5_gazebo) CommandEnded: {'returncode': 0}
+[2.539720] (-) TimerEvent: {}
+[2.583224] (ur5_gazebo) JobEnded: {'identifier': 'ur5_gazebo', 'rc': 0}
+[2.588838] (ur5_moveit_config) CommandEnded: {'returncode': 0}
+[2.616022] (ur5_moveit_config) JobEnded: {'identifier': 'ur5_moveit_config', 'rc': 0}
+[2.619086] (-) EventReactorShutdown: {}

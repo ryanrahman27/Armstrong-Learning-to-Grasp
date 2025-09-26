@@ -1,0 +1,60 @@
+[1.390s] Invoking command in '/workspace/src/ur5_gazebo': PYTHONPATH=/workspace/build/ur5_gazebo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/install/ur5_gazebo/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ur5_gazebo build --build-base /workspace/build/ur5_gazebo/build install --record /workspace/build/ur5_gazebo/install.log --single-version-externally-managed install_data
+[1.787s] running egg_info
+[1.788s] creating ../../build/ur5_gazebo/ur5_gazebo.egg-info
+[1.789s] writing ../../build/ur5_gazebo/ur5_gazebo.egg-info/PKG-INFO
+[1.791s] writing dependency_links to ../../build/ur5_gazebo/ur5_gazebo.egg-info/dependency_links.txt
+[1.793s] writing entry points to ../../build/ur5_gazebo/ur5_gazebo.egg-info/entry_points.txt
+[1.794s] writing requirements to ../../build/ur5_gazebo/ur5_gazebo.egg-info/requires.txt
+[1.796s] writing top-level names to ../../build/ur5_gazebo/ur5_gazebo.egg-info/top_level.txt
+[1.797s] writing manifest file '../../build/ur5_gazebo/ur5_gazebo.egg-info/SOURCES.txt'
+[1.805s] reading manifest file '../../build/ur5_gazebo/ur5_gazebo.egg-info/SOURCES.txt'
+[1.808s] writing manifest file '../../build/ur5_gazebo/ur5_gazebo.egg-info/SOURCES.txt'
+[1.808s] running build
+[1.809s] running build_py
+[1.810s] creating /workspace/build/ur5_gazebo/build
+[1.811s] creating /workspace/build/ur5_gazebo/build/lib
+[1.812s] creating /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+[1.812s] copying ur5_gazebo/demo_recorder.py -> /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+[1.815s] copying ur5_gazebo/__init__.py -> /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+[1.817s] copying ur5_gazebo/camera_detector.py -> /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+[1.818s] copying ur5_gazebo/bc_policy_controller.py -> /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+[1.822s] copying ur5_gazebo/comparison_evaluator.py -> /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+[1.824s] copying ur5_gazebo/pick_place_controller.py -> /workspace/build/ur5_gazebo/build/lib/ur5_gazebo
+[1.826s] running install
+[1.826s] running install_lib
+[1.829s] creating /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+[1.830s] copying /workspace/build/ur5_gazebo/build/lib/ur5_gazebo/demo_recorder.py -> /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+[1.833s] copying /workspace/build/ur5_gazebo/build/lib/ur5_gazebo/__init__.py -> /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+[1.835s] copying /workspace/build/ur5_gazebo/build/lib/ur5_gazebo/camera_detector.py -> /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+[1.839s] copying /workspace/build/ur5_gazebo/build/lib/ur5_gazebo/bc_policy_controller.py -> /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+[1.843s] copying /workspace/build/ur5_gazebo/build/lib/ur5_gazebo/comparison_evaluator.py -> /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+[1.847s] copying /workspace/build/ur5_gazebo/build/lib/ur5_gazebo/pick_place_controller.py -> /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo
+[1.856s] byte-compiling /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo/demo_recorder.py to demo_recorder.cpython-310.pyc
+[1.868s] byte-compiling /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo/__init__.py to __init__.cpython-310.pyc
+[1.871s] byte-compiling /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo/camera_detector.py to camera_detector.cpython-310.pyc
+[1.876s] byte-compiling /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo/bc_policy_controller.py to bc_policy_controller.cpython-310.pyc
+[1.882s] byte-compiling /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo/comparison_evaluator.py to comparison_evaluator.cpython-310.pyc
+[1.889s] byte-compiling /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo/pick_place_controller.py to pick_place_controller.cpython-310.pyc
+[1.894s] running install_data
+[1.896s] creating /workspace/install/ur5_gazebo/share/ament_index
+[1.897s] creating /workspace/install/ur5_gazebo/share/ament_index/resource_index
+[1.899s] creating /workspace/install/ur5_gazebo/share/ament_index/resource_index/packages
+[1.900s] copying resource/ur5_gazebo -> /workspace/install/ur5_gazebo/share/ament_index/resource_index/packages
+[1.903s] copying package.xml -> /workspace/install/ur5_gazebo/share/ur5_gazebo
+[1.904s] creating /workspace/install/ur5_gazebo/share/ur5_gazebo/launch
+[1.906s] copying launch/ur5.launch.py -> /workspace/install/ur5_gazebo/share/ur5_gazebo/launch
+[1.911s] creating /workspace/install/ur5_gazebo/share/ur5_gazebo/worlds
+[1.912s] copying worlds/pick_place_world.world -> /workspace/install/ur5_gazebo/share/ur5_gazebo/worlds
+[1.914s] creating /workspace/install/ur5_gazebo/share/ur5_gazebo/urdf
+[1.915s] copying urdf/ur5.urdf.xacro -> /workspace/install/ur5_gazebo/share/ur5_gazebo/urdf
+[1.917s] creating /workspace/install/ur5_gazebo/share/ur5_gazebo/config
+[1.918s] running install_egg_info
+[1.923s] Copying ../../build/ur5_gazebo/ur5_gazebo.egg-info to /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo-0.0.0-py3.10.egg-info
+[1.949s] running install_scripts
+[1.989s] Installing bc_policy_controller script to /workspace/install/ur5_gazebo/bin
+[1.991s] Installing camera_detector script to /workspace/install/ur5_gazebo/bin
+[1.993s] Installing comparison_evaluator script to /workspace/install/ur5_gazebo/bin
+[1.995s] Installing demo_recorder script to /workspace/install/ur5_gazebo/bin
+[1.996s] Installing pick_place_controller script to /workspace/install/ur5_gazebo/bin
+[1.999s] writing list of installed files to '/workspace/build/ur5_gazebo/install.log'
+[2.032s] Invoked command in '/workspace/src/ur5_gazebo' returned '0': PYTHONPATH=/workspace/build/ur5_gazebo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/install/ur5_gazebo/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ur5_gazebo build --build-base /workspace/build/ur5_gazebo/build install --record /workspace/build/ur5_gazebo/install.log --single-version-externally-managed install_data

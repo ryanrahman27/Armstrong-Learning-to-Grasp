@@ -1,0 +1,85 @@
+
+services:
+  gazebo:
+    image: osrf/ros:humble-desktop-full
+    platform: linux/amd64
+    container_name: armstrong_gazebo
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - XDG_RUNTIME_DIR=/tmp
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./workspace:/workspace
+      - ./data:/data
+      - ./gazebo_models:/home/ros/.gazebo/models
+    network_mode: host
+    command: >
+      bash -c "
+        apt-get update && apt-get install -y ros-humble-gazebo-ros-pkgs ros-humble-gazebo-ros ros-humble-ur-description ros-humble-moveit ros-humble-cv-bridge ros-humble-image-transport &&
+        source /opt/ros/humble/setup.bash &&
+        cd /workspace &&
+        colcon build --packages-select ur5_gazebo ur5_moveit_config &&
+        source install/setup.bash &&
+        ros2 launch ur5_gazebo ur5.launch.py
+      "
+    depends_on:
+      - moveit
+
+  moveit:
+    image: osrf/ros:humble-desktop-full
+    platform: linux/amd64
+    container_name: armstrong_moveit
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./workspace:/workspace
+    network_mode: host
+    command: >
+      bash -c "
+        apt-get update && apt-get install -y ros-humble-moveit ros-humble-ur-description ros-humble-joint-state-publisher &&
+        source /opt/ros/humble/setup.bash &&
+        cd /workspace &&
+        colcon build --packages-select ur5_gazebo ur5_moveit_config &&
+        source install/setup.bash &&
+        ros2 launch ur5_moveit_config moveit.launch.py
+      "
+
+  rviz:
+    image: osrf/ros:humble-desktop-full
+    platform: linux/amd64
+    container_name: armstrong_rviz
+    environment:
+      - DISPLAY=host.docker.internal:0
+      - QT_X11_NO_MITSHM=1
+      - LIBGL_ALWAYS_INDIRECT=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./workspace:/workspace
+    network_mode: host
+    command: >
+      bash -c "
+        source /opt/ros/humble/setup.bash &&
+        cd /workspace &&
+        source install/setup.bash &&
+        ros2 launch ur5_moveit_config rviz.launch.py
+      "
+    depends_on:
+      - moveit
+
+  bc_training:
+    image: tensorflow/tensorflow:2.13.0-gpu
+    container_name: armstrong_bc_training
+    volumes:
+      - ./workspace:/workspace
+      - ./data:/data
+    command: >
+      bash -c "
+        cd /workspace &&
+        python3 -m pip install -r requirements.txt &&
+        python3 src/bc_training/train_policy.py
+      "
+    profiles:
+      - cloud

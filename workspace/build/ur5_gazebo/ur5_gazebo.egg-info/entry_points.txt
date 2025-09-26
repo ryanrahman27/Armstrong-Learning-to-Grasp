@@ -1,0 +1,7 @@
+[console_scripts]
+bc_policy_controller = ur5_gazebo.bc_policy_controller:main
+camera_detector = ur5_gazebo.camera_detector:main
+comparison_evaluator = ur5_gazebo.comparison_evaluator:main
+demo_recorder = ur5_gazebo.demo_recorder:main
+pick_place_controller = ur5_gazebo.pick_place_controller:main
+

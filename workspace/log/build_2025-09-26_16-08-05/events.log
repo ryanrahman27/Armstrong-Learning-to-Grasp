@@ -1,0 +1,45 @@
+[0.000000] (-) TimerEvent: {}
+[0.002700] (-) JobUnselected: {'identifier': 'bc_training'}
+[0.003083] (-) JobUnselected: {'identifier': 'ur5_moveit_config'}
+[0.003281] (ur5_gazebo) JobQueued: {'identifier': 'ur5_gazebo', 'dependencies': OrderedDict()}
+[0.004402] (ur5_gazebo) JobStarted: {'identifier': 'ur5_gazebo'}
+[0.096911] (-) TimerEvent: {}
+[0.203795] (-) TimerEvent: {}
+[0.308799] (-) TimerEvent: {}
+[0.409794] (-) TimerEvent: {}
+[0.511072] (-) TimerEvent: {}
+[0.615020] (-) TimerEvent: {}
+[0.717781] (-) TimerEvent: {}
+[0.818799] (-) TimerEvent: {}
+[0.920049] (-) TimerEvent: {}
+[0.935249] (ur5_gazebo) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/ur5_gazebo', 'build', '--build-base', '/workspace/build/ur5_gazebo/build', 'install', '--record', '/workspace/build/ur5_gazebo/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/workspace/src/ur5_gazebo', 'env': {'HOSTNAME': 'docker-desktop', 'SHLVL': '0', 'HOME': '/root', 'OLDPWD': '/', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'QT_X11_NO_MITSHM': '1', 'PATH': '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'XDG_RUNTIME_DIR': '/tmp', 'DISPLAY': '/private/tmp/com.apple.launchd.f8ctnhmDHP/org.xquartz:0', 'LANG': 'C.UTF-8', 'PWD': '/workspace/build/ur5_gazebo', 'LC_ALL': 'C.UTF-8', 'COLCON': '1', 'PYTHONPATH': '/workspace/build/ur5_gazebo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/install/ur5_gazebo/lib/python3.10/site-packages:'}, 'shell': False}
+[1.020808] (-) TimerEvent: {}
+[1.124784] (-) TimerEvent: {}
+[1.227790] (-) TimerEvent: {}
+[1.260332] (ur5_gazebo) StdoutLine: {'line': b'running egg_info\n'}
+[1.262080] (ur5_gazebo) StdoutLine: {'line': b'writing ../../build/ur5_gazebo/ur5_gazebo.egg-info/PKG-INFO\n'}
+[1.263364] (ur5_gazebo) StdoutLine: {'line': b'writing dependency_links to ../../build/ur5_gazebo/ur5_gazebo.egg-info/dependency_links.txt\n'}
+[1.264425] (ur5_gazebo) StdoutLine: {'line': b'writing entry points to ../../build/ur5_gazebo/ur5_gazebo.egg-info/entry_points.txt\n'}
+[1.265625] (ur5_gazebo) StdoutLine: {'line': b'writing requirements to ../../build/ur5_gazebo/ur5_gazebo.egg-info/requires.txt\n'}
+[1.266300] (ur5_gazebo) StdoutLine: {'line': b'writing top-level names to ../../build/ur5_gazebo/ur5_gazebo.egg-info/top_level.txt\n'}
+[1.270264] (ur5_gazebo) StdoutLine: {'line': b"reading manifest file '../../build/ur5_gazebo/ur5_gazebo.egg-info/SOURCES.txt'\n"}
+[1.272182] (ur5_gazebo) StdoutLine: {'line': b"writing manifest file '../../build/ur5_gazebo/ur5_gazebo.egg-info/SOURCES.txt'\n"}
+[1.272730] (ur5_gazebo) StdoutLine: {'line': b'running build\n'}
+[1.273685] (ur5_gazebo) StdoutLine: {'line': b'running build_py\n'}
+[1.276039] (ur5_gazebo) StdoutLine: {'line': b'running install\n'}
+[1.277561] (ur5_gazebo) StdoutLine: {'line': b'running install_lib\n'}
+[1.280363] (ur5_gazebo) StdoutLine: {'line': b'running install_data\n'}
+[1.281759] (ur5_gazebo) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.283900] (ur5_gazebo) StdoutLine: {'line': b"removing '/workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[1.286537] (ur5_gazebo) StdoutLine: {'line': b'Copying ../../build/ur5_gazebo/ur5_gazebo.egg-info to /workspace/install/ur5_gazebo/lib/python3.10/site-packages/ur5_gazebo-0.0.0-py3.10.egg-info\n'}
+[1.296850] (ur5_gazebo) StdoutLine: {'line': b'running install_scripts\n'}
+[1.333241] (ur5_gazebo) StdoutLine: {'line': b'Installing bc_policy_controller script to /workspace/install/ur5_gazebo/bin\n'}
+[1.334059] (-) TimerEvent: {}
+[1.334764] (ur5_gazebo) StdoutLine: {'line': b'Installing camera_detector script to /workspace/install/ur5_gazebo/bin\n'}
+[1.336030] (ur5_gazebo) StdoutLine: {'line': b'Installing comparison_evaluator script to /workspace/install/ur5_gazebo/bin\n'}
+[1.337027] (ur5_gazebo) StdoutLine: {'line': b'Installing demo_recorder script to /workspace/install/ur5_gazebo/bin\n'}
+[1.338103] (ur5_gazebo) StdoutLine: {'line': b'Installing pick_place_controller script to /workspace/install/ur5_gazebo/bin\n'}
+[1.340115] (ur5_gazebo) StdoutLine: {'line': b"writing list of installed files to '/workspace/build/ur5_gazebo/install.log'\n"}
+[1.366799] (ur5_gazebo) CommandEnded: {'returncode': 0}
+[1.402456] (ur5_gazebo) JobEnded: {'identifier': 'ur5_gazebo', 'rc': 0}
+[1.404615] (-) EventReactorShutdown: {}
