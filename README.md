@@ -20,25 +20,25 @@ Armstrong/
 
 ## Features
 
-### 🤖 Simulation Environment
+### Simulation Environment
 - UR5 6-DOF robotic arm in Gazebo
 - Colored block detection with computer vision
 - Pick-and-place world with bin target
 - Real-time physics simulation
 
-### 🎯 MoveIt Integration
+### MoveIt Integration
 - Complete MoveIt2 configuration
 - OMPL motion planning
 - Collision-aware trajectory generation
 - RViz visualization
 
-### 🧠 Imitation Learning
+### Imitation Learning
 - ROS bag recording of human demonstrations
 - Behavioral cloning with TensorFlow
 - Neural network policy training
 - Real-time policy execution
 
-### 📊 Comparison Framework
+### Comparison Framework
 - Automated evaluation system
 - Success rate metrics
 - Completion time analysis
@@ -215,10 +215,10 @@ If you use this work in your research, please cite:
 
 ```bibtex
 @misc{armstrong2024,
-  title={Armstrong: Comparing IK Planning vs Imitation Learning for Pick-and-Place},
-  author={Armstrong Project},
-  year={2024},
-  howpublished={\\url{https://github.com/yourusername/armstrong}}
+  title={Armstrong: Learning to Grasp},
+  author={Ryan Rahman},
+  year={2025},
+  howpublished={\\url{https://github.com/ryanrahman27/Armstrong-Learning-to-Grasp}}
 }
 ```
 
