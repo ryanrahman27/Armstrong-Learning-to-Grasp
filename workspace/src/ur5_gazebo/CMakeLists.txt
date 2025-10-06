@@ -10,14 +10,23 @@ find_package(rclpy REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
 find_package(moveit_msgs REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(gazebo_ros REQUIRED)
 find_package(urdf REQUIRED)
 find_package(xacro REQUIRED)
 
-# Install Python modules
-ament_python_install_package(${PROJECT_NAME})
+# Install Python executables to create libexec dir
+install(PROGRAMS
+  scripts/camera_detector.py
+  scripts/pick_place_controller.py
+  scripts/demo_recorder.py
+  scripts/bc_policy_controller.py
+  scripts/comparison_evaluator.py
+  scripts/environment_visualizer.py
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 # Install launch files
 install(DIRECTORY launch

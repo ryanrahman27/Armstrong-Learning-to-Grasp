@@ -31,6 +31,8 @@ setup(
             'demo_recorder = ur5_gazebo.demo_recorder:main',
             'bc_policy_controller = ur5_gazebo.bc_policy_controller:main',
             'comparison_evaluator = ur5_gazebo.comparison_evaluator:main',
+            'environment_visualizer = ur5_gazebo.environment_visualizer:main',
+            'simple_pick_place = ur5_gazebo.simple_pick_place:main',
         ],
     },
 )

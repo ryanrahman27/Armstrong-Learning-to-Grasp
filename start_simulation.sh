@@ -24,9 +24,12 @@ docker run -it --rm \
             ros-humble-gazebo-ros \
             ros-humble-ur-description \
             ros-humble-moveit \
+            ros-humble-moveit-msgs \
+            ros-humble-moveit-ros-planning-interface \
             ros-humble-joint-state-publisher \
             ros-humble-robot-state-publisher \
-            ros-humble-xacro
+            ros-humble-xacro \
+            ros-humble-foxglove-bridge
 
         # Source ROS2
         source /opt/ros/humble/setup.bash

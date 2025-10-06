@@ -25,9 +25,12 @@ services:
           ros-humble-gazebo-ros 
           ros-humble-ur-description 
           ros-humble-moveit 
+          ros-humble-moveit-msgs 
+          ros-humble-moveit-ros-planning-interface 
           ros-humble-joint-state-publisher 
           ros-humble-robot-state-publisher 
-          ros-humble-xacro &&
+          ros-humble-xacro 
+          ros-humble-foxglove-bridge &&
         source /opt/ros/humble/setup.bash &&
         cd /workspace &&
         colcon build --packages-select ur5_gazebo ur5_moveit_config &&

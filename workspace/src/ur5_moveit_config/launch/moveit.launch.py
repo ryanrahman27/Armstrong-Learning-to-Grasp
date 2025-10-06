@@ -17,7 +17,8 @@ def generate_launch_description():
     rviz_config_file = LaunchConfiguration('rviz_config_file')
     
     # Robot description parameter
-    robot_description_content = open(os.path.join(pkg_ur5_moveit_config, '..', 'ur5_gazebo', 'urdf', 'ur5.urdf.xacro'), 'r').read()
+    pkg_ur5_gazebo = get_package_share_directory('ur5_gazebo')
+    robot_description_content = open(os.path.join(pkg_ur5_gazebo, 'urdf', 'ur5.urdf.xacro'), 'r').read()
     
     # MoveIt2 move_group node
     move_group_node = Node(

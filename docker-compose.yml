@@ -5,23 +5,28 @@ services:
     platform: linux/amd64
     container_name: armstrong_gazebo
     environment:
-      - DISPLAY=${DISPLAY}
+      - DISPLAY=host.docker.internal:0
       - QT_X11_NO_MITSHM=1
       - XDG_RUNTIME_DIR=/tmp
+      - LIBGL_ALWAYS_INDIRECT=1
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ./workspace:/workspace
       - ./data:/data
       - ./gazebo_models:/home/ros/.gazebo/models
-    network_mode: host
+    ports:
+      - "11345:11345"
+      - "11346:11346"
+      - "8765:8765"  # Foxglove bridge websocket
     command: >
       bash -c "
-        apt-get update && apt-get install -y ros-humble-gazebo-ros-pkgs ros-humble-gazebo-ros ros-humble-ur-description ros-humble-moveit ros-humble-cv-bridge ros-humble-image-transport &&
+        apt-get update && apt-get install -y ros-humble-gazebo-ros-pkgs ros-humble-gazebo-ros ros-humble-ur-description ros-humble-moveit ros-humble-moveit-msgs ros-humble-moveit-ros-planning-interface ros-humble-cv-bridge ros-humble-image-transport ros-humble-foxglove-bridge &&
         source /opt/ros/humble/setup.bash &&
         cd /workspace &&
         colcon build --packages-select ur5_gazebo ur5_moveit_config &&
         source install/setup.bash &&
-        ros2 launch ur5_gazebo ur5.launch.py
+        echo 'Gazebo container ready. Exec into container to launch.' &&
+        tail -f /dev/null
       "
     depends_on:
       - moveit
@@ -31,20 +36,21 @@ services:
     platform: linux/amd64
     container_name: armstrong_moveit
     environment:
-      - DISPLAY=${DISPLAY}
+      - DISPLAY=host.docker.internal:0
       - QT_X11_NO_MITSHM=1
+      - LIBGL_ALWAYS_INDIRECT=1
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ./workspace:/workspace
-    network_mode: host
     command: >
       bash -c "
-        apt-get update && apt-get install -y ros-humble-moveit ros-humble-ur-description ros-humble-joint-state-publisher &&
+        apt-get update && apt-get install -y ros-humble-moveit ros-humble-moveit-msgs ros-humble-moveit-ros-planning-interface ros-humble-ur-description ros-humble-joint-state-publisher &&
         source /opt/ros/humble/setup.bash &&
         cd /workspace &&
-        colcon build --packages-select ur5_gazebo ur5_moveit_config &&
+        colcon build --packages-select ur5_moveit_config &&
         source install/setup.bash &&
-        ros2 launch ur5_moveit_config moveit.launch.py
+        echo 'MoveIt container ready. Exec into container to launch.' &&
+        tail -f /dev/null
       "
 
   rviz:
@@ -58,13 +64,13 @@ services:
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ./workspace:/workspace
-    network_mode: host
     command: >
       bash -c "
         source /opt/ros/humble/setup.bash &&
         cd /workspace &&
         source install/setup.bash &&
-        ros2 launch ur5_moveit_config rviz.launch.py
+        echo 'RViz container ready. Launch RViz manually if needed.' &&
+        tail -f /dev/null
       "
     depends_on:
       - moveit
