@@ -72,8 +72,29 @@ def generate_launch_description():
     # Camera node for block detection
     camera_node = Node(
         package='ur5_gazebo',
-        executable='camera_detector',
+        executable='camera_detector.py',
         name='camera_detector',
+        output='screen',
+        parameters=[{'use_sim_time': use_sim_time}]
+    )
+
+    # Foxglove Bridge for web-based visualization
+    foxglove_bridge = Node(
+        package='foxglove_bridge',
+        executable='foxglove_bridge',
+        name='foxglove_bridge',
+        output='screen',
+        parameters=[{
+            'port': 8765,
+            'use_sim_time': use_sim_time
+        }]
+    )
+
+    # Environment visualizer for markers
+    environment_visualizer = Node(
+        package='ur5_gazebo',
+        executable='environment_visualizer.py',
+        name='environment_visualizer',
         output='screen',
         parameters=[{'use_sim_time': use_sim_time}]
     )
@@ -93,5 +114,7 @@ def generate_launch_description():
         robot_state_publisher,
         joint_state_publisher,
         spawn_ur5,
-        camera_node
+        camera_node,
+        foxglove_bridge,
+        environment_visualizer
     ])

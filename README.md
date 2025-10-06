@@ -1,227 +1,231 @@
-# Armstrong: 6-DOF Pick and Place Comparison
+# Armstrong: 6-DOF Pick and Place Robotic Arm Simulation
 
-This project implements and compares two approaches for robotic pick-and-place tasks:
-1. **IK + MoveIt Planning**: Traditional motion planning with inverse kinematics
-2. **Imitation Learning**: Behavioral cloning from human demonstrations
+A Docker-based ROS2 robotic arm simulation with real-time visualization using Foxglove Studio.
+
+## Features
+
+- **UR5 6-DOF Robotic Arm** - Complete simulation in Gazebo with physics
+- **Real-time Visualization** - Foxglove Studio web-based visualization
+- **Pick and Place Demo** - Automated motion sequences
+- **Environment Markers** - Visual indicators for blocks and bins
+- **Docker-based Setup** - Easy deployment with all dependencies included
+
+## Quick Start
+
+### Prerequisites
+
+- Docker Desktop
+- Foxglove Studio (desktop app or web version)
+
+### 1. Start the Simulation
+
+```bash
+./start_with_foxglove.sh
+```
+
+This script will:
+- Start Docker containers with ROS2 and Gazebo
+- Install all required packages
+- Build the workspace
+- Launch the simulation with Foxglove bridge
+- Start environment visualization
+
+### 2. Connect Foxglove Studio
+
+**Desktop App** (recommended):
+1. Download from https://foxglove.dev/download
+2. Open Foxglove Studio
+3. Click "Open Connection"
+4. Select "Rosbridge (ROS 1 & 2)"
+5. Enter: `ws://localhost:8765`
+6. Click "Open"
+
+**Web Version**:
+1. Go to https://app.foxglove.dev
+2. Follow same connection steps as above
+
+### 3. Configure Visualization
+
+In Foxglove, add a **3D Panel** and enable:
+- `/tf` - Transform tree
+- `/robot_description` - Robot model
+- `/environment_markers` - Blocks and bins
+- Set **Fixed Frame** to `world`
+
+### 4. Run Pick-and-Place Demo
+
+```bash
+./demo_pick_place_sequence.sh
+```
+
+Watch in Foxglove as the robot performs a 7-phase pick-and-place sequence:
+1. Move to home position
+2. Reach toward block
+3. Lower to grasp
+4. Lift block
+5. Move to bin
+6. Place block
+7. Return home
 
 ## Project Structure
 
 ```
 Armstrong/
-├── docker-compose.yml           # Multi-container setup
-├── workspace/
-│   └── src/
-│       ├── ur5_gazebo/         # Gazebo simulation
-│       ├── ur5_moveit_config/  # MoveIt2 configuration
-│       └── bc_training/        # Behavioral cloning training
-├── run_experiment.sh           # Complete experiment runner
-└── README.md                   # This file
+├── docker-compose.yml                 # Multi-container configuration
+├── start_with_foxglove.sh            # Main startup script
+├── demo_pick_place_sequence.sh       # Pick-and-place demonstration
+├── diagnose_simulation.sh            # Diagnostic tool
+├── FOXGLOVE_COMPLETE_GUIDE.md        # Complete setup and troubleshooting guide
+└── workspace/
+    └── src/
+        ├── ur5_gazebo/               # Gazebo simulation package
+        │   ├── urdf/                 # Robot model with Gazebo plugins
+        │   ├── worlds/               # Simulation environments
+        │   ├── launch/               # Launch files
+        │   └── ur5_gazebo/           # Python nodes
+        │       ├── environment_visualizer.py  # Publishes markers
+        │       ├── camera_detector.py         # Block detection
+        │       ├── pick_place_controller.py   # Motion control
+        │       └── ...
+        ├── ur5_moveit_config/        # MoveIt2 configuration
+        └── bc_training/              # Behavioral cloning (future)
 ```
 
-## Features
+## Available Scripts
 
-### Simulation Environment
-- UR5 6-DOF robotic arm in Gazebo
-- Colored block detection with computer vision
-- Pick-and-place world with bin target
-- Real-time physics simulation
+### start_with_foxglove.sh
+Main startup script that launches everything needed:
+- Starts Docker containers
+- Installs dependencies
+- Builds workspace
+- Launches Gazebo simulation
+- Starts Foxglove bridge
+- Starts environment visualizer
 
-### MoveIt Integration
-- Complete MoveIt2 configuration
-- OMPL motion planning
-- Collision-aware trajectory generation
-- RViz visualization
+### demo_pick_place_sequence.sh
+Runs automated pick-and-place demonstration by sending joint trajectory commands through 7 motion phases.
 
-### Imitation Learning
-- ROS bag recording of human demonstrations
-- Behavioral cloning with TensorFlow
-- Neural network policy training
-- Real-time policy execution
+### diagnose_simulation.sh
+Diagnostic tool that checks:
+- Container status
+- Running ROS nodes
+- Available topics
+- Foxglove bridge status
+- Joint state publication
 
-### Comparison Framework
-- Automated evaluation system
-- Success rate metrics
-- Completion time analysis
-- Statistical comparison
-
-## Quick Start
-
-### 1. Launch Complete System
-```bash
-# Start all containers
-docker-compose up -d
-
-# Run complete experiment
-./run_experiment.sh
-```
-
-### 2. Individual Components
-
-#### Gazebo Simulation
-```bash
-docker-compose up gazebo
-```
-
-#### MoveIt Planning
-```bash
-docker-compose up moveit
-```
-
-#### RViz Visualization (macOS native)
-```bash
-# Install ROS2 Humble on macOS first
-ros2 launch ur5_moveit_config rviz.launch.py
-```
-
-## Recording Demonstrations
-
-### 1. Start Recording System
-```bash
-ros2 run ur5_gazebo demo_recorder.py
-```
-
-### 2. Control Robot Manually
-```bash
-# Start recording
-ros2 topic pub /record_demo std_msgs/msg/Bool "data: true"
-
-# Use manual control or joystick to demonstrate pick-and-place
-# ... perform demonstrations ...
-
-# Stop recording
-ros2 topic pub /record_demo std_msgs/msg/Bool "data: false"
-```
-
-### 3. Train BC Policy
-```bash
-# Train on recorded demonstrations
-docker-compose run bc_training python3 train_policy.py \
-    --bag_path /data/demonstrations/demo_YYYYMMDD_HHMMSS \
-    --model_path /data/bc_model.h5 \
-    --epochs 100
-```
-
-## Running Comparisons
-
-### 1. Start Evaluation System
-```bash
-# Launch all required nodes
-ros2 run ur5_gazebo pick_place_controller.py &
-ros2 run ur5_gazebo bc_policy_controller.py &
-ros2 run ur5_gazebo comparison_evaluator.py &
-```
-
-### 2. Evaluate MoveIt Method
-```bash
-ros2 topic pub /start_evaluation std_msgs/msg/String "data: 'moveit'"
-```
-
-### 3. Evaluate BC Method
-```bash
-ros2 topic pub /start_evaluation std_msgs/msg/String "data: 'bc'"
-```
-
-### 4. View Results
-Results are automatically saved to `/data/evaluation_*.json`
-
-## Key Topics
+## Key ROS Topics
 
 | Topic | Type | Description |
 |-------|------|-------------|
 | `/joint_states` | sensor_msgs/JointState | Current robot joint positions |
-| `/block_pose` | geometry_msgs/PoseStamped | Detected block position |
-| `/record_demo` | std_msgs/Bool | Start/stop demonstration recording |
-| `/bc_policy_active` | std_msgs/Bool | Activate/deactivate BC policy |
-| `/start_evaluation` | std_msgs/String | Start evaluation ("moveit" or "bc") |
-| `/evaluation_status` | std_msgs/String | Current evaluation status |
-
-## Configuration
-
-### MoveIt Parameters
-- **Planner**: RRTConnect (default)
-- **Planning Time**: 5.0 seconds
-- **Velocity Scaling**: 0.1
-- **Acceleration Scaling**: 0.1
-
-### BC Training Parameters
-- **Architecture**: 256-256-128 fully connected
-- **Activation**: ReLU with dropout (0.2)
-- **Optimizer**: Adam
-- **Loss**: Mean Squared Error
-- **Early Stopping**: 10 epochs patience
-
-### Evaluation Parameters
-- **Trials per Method**: 10
-- **Success Threshold**: 5cm from bin center
-- **Timeout**: 60 seconds per trial
-
-## Results Interpretation
-
-The system generates detailed comparison metrics:
-
-- **Success Rate**: Percentage of successful pick-and-place operations
-- **Completion Time**: Average time for successful trials
-- **Robustness**: Consistency across multiple trials
-- **Failure Analysis**: Categorization of failure modes
-
-## Development
-
-### Adding New Evaluation Metrics
-1. Modify `comparison_evaluator.py`
-2. Add new metric calculation in `record_trial_result()`
-3. Update report generation
-
-### Extending BC Architecture
-1. Edit `train_policy.py`
-2. Modify `build_model()` function
-3. Adjust hyperparameters
-
-### Adding New Planners
-1. Update `ompl_planning.yaml`
-2. Add planner configuration
-3. Set as default in MoveIt config
+| `/environment_markers` | visualization_msgs/MarkerArray | Block and bin visualization |
+| `/robot_description` | std_msgs/String | Robot URDF model |
+| `/tf` | tf2_msgs/TFMessage | Transform tree |
+| `/set_joint_trajectory` | trajectory_msgs/JointTrajectory | Joint motion commands |
+| `/camera/image_raw` | sensor_msgs/Image | Camera feed |
 
 ## Troubleshooting
 
-### Common Issues
+### Robot Not Moving
+1. Check if Gazebo is running: `docker ps | grep gazebo`
+2. Verify joint states are being published: `ros2 topic hz /joint_states`
+3. See FOXGLOVE_COMPLETE_GUIDE.md for detailed troubleshooting
 
-1. **Container Connection Issues**
-   ```bash
-   # Restart containers
-   docker-compose down && docker-compose up -d
-   ```
+### Can't See Blocks/Bins in Foxglove
+1. In Foxglove 3D panel settings, enable `/environment_markers` topic
+2. Verify Fixed Frame is set to `world`
+3. Check visualizer is running: `ros2 node list | grep environment_visualizer`
 
-2. **MoveIt Planning Failures**
-   ```bash
-   # Check joint limits and collision geometry
-   ros2 topic echo /move_group/status
-   ```
+### Foxglove Won't Connect
+1. Verify Foxglove bridge is running: `ros2 node list | grep foxglove`
+2. Check port 8765 is exposed: `docker ps | grep 8765`
+3. Try reconnecting to `ws://localhost:8765`
 
-3. **BC Training Convergence**
-   ```bash
-   # Increase training data or adjust learning rate
-   # Check demonstration quality and synchronization
-   ```
+For more detailed troubleshooting, see **FOXGLOVE_COMPLETE_GUIDE.md**
 
-### Performance Optimization
+## System Requirements
 
-- Adjust MoveIt planning parameters for speed vs. success rate
-- Tune BC network architecture for your specific task
-- Optimize computer vision parameters for your lighting conditions
+- **OS**: macOS, Linux, or Windows with WSL2
+- **Docker**: Docker Desktop 4.0+
+- **Memory**: 4GB+ RAM available for containers
+- **Disk**: 10GB+ free space for images and builds
+
+## Development
+
+### Building Changes
+
+After modifying source files:
+```bash
+docker-compose exec gazebo bash -c "
+    source /opt/ros/humble/setup.bash &&
+    cd /workspace &&
+    colcon build &&
+    source install/setup.bash
+"
+```
+
+### Accessing Containers
+
+```bash
+# Gazebo container
+docker-compose exec gazebo bash
+
+# MoveIt container
+docker-compose exec moveit bash
+
+# Source ROS2 environment
+source /opt/ros/humble/setup.bash
+cd /workspace
+source install/setup.bash
+```
+
+### Adding New Nodes
+
+1. Add Python file to `workspace/src/ur5_gazebo/ur5_gazebo/`
+2. Update `setup.py` with new entry point
+3. Rebuild with `colcon build`
+4. Run with `ros2 run ur5_gazebo <node_name>`
+
+## Architecture
+
+### Simulation Stack
+- **Gazebo** - Physics simulation
+- **ROS2 Humble** - Middleware and communication
+- **Foxglove Bridge** - WebSocket bridge for visualization
+- **Docker** - Containerized deployment
+
+### Robot Control
+- **Joint State Publisher** - Publishes current positions
+- **Joint Trajectory Controller** - Accepts motion commands
+- **Robot State Publisher** - Publishes TF tree
+- **Gazebo Plugins** - Joint control interface
+
+### Visualization
+- **Foxglove Studio** - Web-based 3D visualization
+- **Environment Visualizer** - Publishes object markers
+- **Camera Plugin** - Provides image feed
+
+## Future Enhancements
+
+- Full MoveIt integration for collision-aware planning
+- Behavioral cloning for learning from demonstrations
+- Gripper simulation and grasping physics
+- Multiple object manipulation
+- Real robot deployment
 
 ## Citation
 
-If you use this work in your research, please cite:
+If you use this work in your research:
 
 ```bibtex
-@misc{armstrong2024,
-  title={Armstrong: Learning to Grasp},
+@misc{armstrong2025,
+  title={Armstrong: 6-DOF Pick and Place Robotic Arm Simulation},
   author={Ryan Rahman},
   year={2025},
-  howpublished={\\url{https://github.com/ryanrahman27/Armstrong-Learning-to-Grasp}}
+  howpublished={\url{https://github.com/ryanrahman27/Armstrong-Learning-to-Grasp}}
 }
 ```
 
 ## License
 
-Apache 2.0 License - see LICENSE file for details.
+Apache 2.0 License

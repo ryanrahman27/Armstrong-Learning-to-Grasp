@@ -1,1 +1,1 @@
-gazebo_ros:gazebo_ros_pkgs:geometry_msgs:moveit_msgs:moveit_ros_planning_interface:rclpy:sensor_msgs:std_msgs:urdf:xacro
+gazebo_ros:gazebo_ros_pkgs:geometry_msgs:moveit_msgs:moveit_ros_planning_interface:rclpy:sensor_msgs:std_msgs:urdf:visualization_msgs:xacro

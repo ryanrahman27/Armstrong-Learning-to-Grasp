@@ -1,1 +1,0 @@
-error removing /workspace/install/ur5_moveit_config/lib/python3.10/site-packages/ur5_moveit_config-0.0.0-py3.10.egg-info: [Errno 39] Directory not empty: '/workspace/install/ur5_moveit_config/lib/python3.10/site-packages/ur5_moveit_config-0.0.0-py3.10.egg-info'
